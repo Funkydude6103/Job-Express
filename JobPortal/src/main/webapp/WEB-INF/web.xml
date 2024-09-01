@@ -1,0 +1,43 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterationServlet</servlet-name>
+  	<display-name>RegisterationServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlet.RegisterationServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GiveReviewServlet</servlet-name>
+  	<display-name>GiveReviewServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlet.GiveReviewServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterationServlet</servlet-name>
+  	<url-pattern>/RegisterationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GiveReviewServlet</servlet-name>
+  	<url-pattern>/GiveReviewServlet</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+  <welcome-file>Login-Registration.jsp</welcome-file>
+</welcome-file-list>
+
+</web-app>
