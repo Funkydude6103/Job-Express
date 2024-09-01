@@ -1,0 +1,79 @@
+
+CREATE DATABASE jobportal
+
+CREATE TABLE User (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255),
+    password VARCHAR(255),
+    name VARCHAR(255),
+    age INT,
+    role VARCHAR(255)
+) AUTO_INCREMENT=1;
+
+
+CREATE TABLE JobSeeker (
+    userID INT PRIMARY KEY,
+    resume LONGBLOB,
+    profilePhoto MEDIUMBLOB,
+    phoneNumber VARCHAR(255),
+    address VARCHAR(255),
+    linkedIn VARCHAR(255),
+    DOB DATE,
+    Gender CHAR(1),
+    education TEXT,
+    employment TEXT,
+    skills TEXT,
+    languages TEXT,
+    hobbies TEXT,
+    qualities TEXT,
+    FOREIGN KEY (userID) REFERENCES User(ID)
+);
+
+
+
+CREATE TABLE Employer (
+    userID INT PRIMARY KEY,
+    companyName VARCHAR(255),
+    companyDescription VARCHAR(255),
+    address VARCHAR(255),
+    linkedIn VARCHAR(255),
+    introduction TEXT,
+    missionStatement TEXT,
+    vision TEXT,
+    FOREIGN KEY (userID) REFERENCES User(ID)
+);
+
+
+CREATE TABLE Job (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+    description TEXT,
+    location VARCHAR(255),
+    salary VARCHAR(255),
+    requirements TEXT,
+    datePosted DATE,
+    status VARCHAR(255),
+    category VARCHAR(255),
+    approve BOOLEAN,
+    employerID int,
+    FOREIGN KEY (employerID) REFERENCES Employer(userID)
+)AUTO_INCREMENT=1;
+
+CREATE TABLE JobApplication (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    jobID int,
+    description TEXT,
+    applicationStatus VARCHAR(255),
+    jobSeekerID int,
+    FOREIGN KEY (jobID) REFERENCES Job(ID),
+    FOREIGN KEY (jobSeekerID) REFERENCES jobseeker(userID)
+)AUTO_INCREMENT=1;
+
+CREATE TABLE Review (
+    employerID int,
+    jobSeekerID int,
+    review TEXT,
+    stars  int,
+    FOREIGN KEY (employerID) REFERENCES Employer(userID),
+    FOREIGN KEY (jobSeekerID) REFERENCES JobSeeker(userID)
+);
